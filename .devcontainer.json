@@ -1,0 +1,7 @@
+{
+    "image": "public.ecr.aws/l2m0t2f1/terraform-mfa:1.2",
+    "extensions": [
+        "eamodio.gitlens",
+        "hashicorp.terraform"
+    ]
+}
