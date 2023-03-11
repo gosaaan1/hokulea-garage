@@ -24,7 +24,7 @@ ENV LANG en_US.utf8
 RUN curl -L https://github.com/99designs/aws-vault/releases/download/v6.2.0/aws-vault-linux-amd64 -o /usr/bin/aws-vault \
 && chmod 755 /usr/bin/aws-vault
 
-ENV AWS_VAULT_BACKEND pass
+# ENV AWS_VAULT_BACKEND pass
 ENV GPG_TTY /dev/pts/0
 
 ###############################################################################
