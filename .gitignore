@@ -30,3 +30,4 @@ override.tf.json
 
 *.secure
 *.log
+aws_rds_stress_test/.terraform.lock.hcl
