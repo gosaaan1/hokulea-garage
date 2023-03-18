@@ -8,6 +8,8 @@ module "rds_slowquery_metric_filter" {
   metric_transformation_name          = "SlowQueries"
   metric_transformation_namespace     = "${local.name}/LogMetrics"
   metric_transformation_default_value = "0"
+  metric_transformation_value         = "1"
+  metric_transformation_unit          = "Count"
   name                                = "SlowQuery"
   pattern                             = "Query_time"
 }
