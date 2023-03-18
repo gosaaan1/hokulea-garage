@@ -1,5 +1,5 @@
 module "rds_metric_alarms" {
-  source = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
+  source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
   version = "~> 4.0"
 
   for_each = local.metrics
