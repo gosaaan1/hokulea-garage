@@ -88,4 +88,6 @@ Amazon RDSの運用監視を行う上で必要となるメトリクス（評価�
 
 ## 例
 
-
+[aws_rds_stress_test](/aws_rds_stress_test) はパブリックアクセス可能なRDSをAWSのVPC内に設置し、負荷テストを行うための環境を提供する Terraform のコードです。
+RDSにはCPUクレジット残高、RAM空き容量、ストレージ空き容量、バーストバランス、データベース接続、スロークエリーの6つのメトリクスが定義されており、しきい値を超えるとアラームを発報します。
+詳しくは [README.md](/aws_rds_stress_test/README.md) を参照ください。

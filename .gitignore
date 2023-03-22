@@ -29,4 +29,4 @@ override.tf.json
 # example: *tfplan*
 
 *.secure
-aws_rds_stress_test/.terraform.lock.hcl
+.terraform.lock.hcl
