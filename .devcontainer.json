@@ -1,5 +1,6 @@
 {
     "image": "terraform-mfa:22.202303",
+    "postCreateCommand": "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye",
     "extensions": [
         "eamodio.gitlens",
         "hashicorp.terraform"

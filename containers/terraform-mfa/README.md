@@ -27,6 +27,8 @@ AWSのMFA（多段階）認証に対応したTerraformの実行環境を提供�
         # 次の1行を記述すると、アクセスキーやシークレットキーはDockerの名前付きボリューム "terraform_credentials" に保存されます。
         # 認証情報を複数のコンテナで共有したいときはこの行を追加します
         "mounts": ["source=terraform_credentials,target=/root"],
+        # VSCode 1.75以降では以下を必ず追加してください
+        "postCreateCommand": "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye",
         "extensions": [
             "eamodio.gitlens",
             "hashicorp.terraform"
