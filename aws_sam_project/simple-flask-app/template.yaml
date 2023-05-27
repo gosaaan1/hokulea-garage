@@ -12,26 +12,21 @@ Globals:
     MemorySize: 128
 
 Resources:
-  FlaskAppFunction:
+  SimpleFlaskFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       PackageType: Image
       Architectures:
         - x86_64
       Events:
-        ApiRoot:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: '/'
-            Method: ANY
         ApiProxy:
-          Type: Api
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: '/{proxy+}'
             Method: ANY
     Metadata:
       Dockerfile: Dockerfile
-      DockerContext: ./flask_app
+      DockerContext: ./simple_flask
       DockerTag: 1.0.0
 
 Outputs:
@@ -44,6 +39,6 @@ Outputs:
   SimpleFlaskFunction:
     Description: "Simple Flask Lambda Function ARN"
     Value: !GetAtt SimpleFlaskFunction.Arn
-  HelloWorldFunctionIamRole:
+  SimpleFlaskFunctionIamRole:
     Description: "Implicit IAM Role created for Simple Flask function"
     Value: !GetAtt SimpleFlaskFunctionRole.Arn

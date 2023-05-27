@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 app = Flask(__name__)
 api = Api(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://hoge:hoge@hokulea.c5u5zhqpg4yr.ap-northeast-1.rds.amazonaws.com/hogedb?charset=utf8mb4"
 db.init_app(app)
 
 class HelloWorld(Resource):
