@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.10
 
 # タイムゾーンの設定
 ENV TZ=Asia/Tokyo
@@ -35,7 +35,8 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
 RUN test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)" \
 ; test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
 ; test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile \
-; echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
+; echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc \
+; /home/linuxbrew/.linuxbrew/bin/brew install gcc
 
 # NOTE Nead FontはWindows, Mac側にインストールし、VSCodeの設定の`Terminal › Integrated: Font Family`で`Nerd Font`を指定してください
 RUN /home/linuxbrew/.linuxbrew/bin/brew install starship \
