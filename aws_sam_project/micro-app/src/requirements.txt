@@ -1,0 +1,4 @@
+requests
+Flask
+aws-wsgi
+flask-restful
