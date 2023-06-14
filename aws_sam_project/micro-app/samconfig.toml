@@ -17,6 +17,8 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
+s3_prefix = "micro-app"
+region = "ap-northeast-1"
 
 [default.package.parameters]
 resolve_s3 = true
