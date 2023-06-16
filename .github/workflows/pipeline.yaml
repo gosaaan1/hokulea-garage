@@ -37,6 +37,7 @@ jobs:
           echo 'Running unit tests'
           cd aws_sam_project/micro-app
           pip3 install pytest pytest-mock
+          pip3 install -r requirements.txt -t .
           python3 -m pytest tests/unit
   delete-feature:
     if: startsWith(github.event.ref, 'feature') && github.event_name == 'delete'
