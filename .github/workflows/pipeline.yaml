@@ -35,6 +35,7 @@ jobs:
       - run: |
           # trigger the tests here
           echo 'Running unit tests'
+          cd aws_sam_project/micro-app
           pip3 install pytest pytest-mock
           python3 -m pytest tests/unit
   delete-feature:
