@@ -35,7 +35,7 @@ jobs:
       - run: |
           # trigger the tests here
           echo 'Running unit tests'
-          cd aws_sam_project/micro-app
+          cd aws_sam_project/micro-app/src
           pip3 install pytest pytest-mock
           pip3 install -r requirements.txt -t .
           python3 -m pytest tests/unit
