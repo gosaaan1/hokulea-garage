@@ -12,7 +12,7 @@ on:
 env:
   PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  SAM_TEMPLATE: /aws_sam_project/micro-app/template.yaml
+  SAM_TEMPLATE: aws_sam_project/micro-app/template.yaml
   TESTING_STACK_NAME: micro-app-dev
   TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::525658500115:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-3HYPP9B5R9MG
   TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::525658500115:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-7HHLRL1HZNX1
