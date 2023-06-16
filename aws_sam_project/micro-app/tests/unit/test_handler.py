@@ -124,7 +124,7 @@ def test_get_lambda_handler(get_apigw_event, mocker):
 
     assert "msg" in ret["body"]
     data = json.loads(ret["body"])
-    assert data["msg"] == "get method"
+    assert data["msg"] == "get method canary"
 
 def test_post_lambda_handler(post_apigw_event, mocker):
 
