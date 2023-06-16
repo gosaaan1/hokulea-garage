@@ -31,6 +31,9 @@ Resources:
           Properties:
             Path: '/api/micro/{proxy+}'
             Method: ANY
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type: Canary10Percent5Minutes
     Metadata:
       Dockerfile: Dockerfile
       DockerContext: ./src
