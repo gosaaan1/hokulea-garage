@@ -1,0 +1,4 @@
+aws-wsgi
+Flask
+Flask-SQLAlchemy
+pymysql
