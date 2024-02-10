@@ -22,8 +22,11 @@ sqlite3 \
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
-# ユーザー作成
-RUN groupadd developer && useradd -g developer py_node
+# ユーザー作成 & VSCodeのワークスペースのマウント先ディレクトリを作成
+RUN groupadd developer && useradd -g developer py_node \
+&& mkdir /workspace \
+&& chown py_node:developer /workspace
+
 USER py_node
 WORKDIR /home/py_node
 

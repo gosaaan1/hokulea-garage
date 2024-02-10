@@ -9,7 +9,7 @@ services:
       public.ecr.aws/l2m0t2f1/py_node:latest
 
     volumes:
-      - ../..:/workspaces:cached
+      - workspace-data:/workspace
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
@@ -35,3 +35,4 @@ services:
 
 volumes:
   postgres-data:
+  workspace-data:

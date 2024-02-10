@@ -4,7 +4,8 @@
 	"name": "py_node & PostgreSQL",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+	"workspaceMount": "source=workspace-data,target=/workspace,type=volume",
+	"workspaceFolder": "/workspace"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
