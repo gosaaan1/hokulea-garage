@@ -4,10 +4,7 @@
     // シェルのプロファイル名に対して`"path"`で実行するシェルのパスを指定し、`"args"`で起動時の引数を指定する。
     "terminal.integrated.profiles.linux": {
         "bash": {
-            "path": "bash",
-            "args": [
-                "-l"
-            ]
+            "path": "/bin/bash"
         }
     }
 }
