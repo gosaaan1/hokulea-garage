@@ -31,17 +31,20 @@ WORKDIR /home/py_node
 RUN curl https://pyenv.run | bash \
 && curl -fsSL https://github.com/nodenv/nodenv-installer/raw/HEAD/bin/nodenv-installer | bash \
 && curl -sS https://starship.rs/install.sh > install.sh \
-&& mkdir -p $/home/py_node/.starship/bin \
-&& sh install.sh --yes --bin-dir=$/home/py_node/.starship/bin \
-&& rm install.sh \
-&& echo 'PATH=$PATH:$/home/py_node/.starship/bin:$/home/py_node/.pyenv/bin:$/home/py_node/.nodenv/bin' >> ~/.bashrc \
-&& echo 'eval "$(pyenv init -)"' >> ~/.bashrc \
-&& echo 'eval "$(nodenv init -)"' >> ~/.bashrc \
-&& echo 'eval "$(starship init bash)"' >> ~/.bashrc \
-&& /home/py_node/.pyenv/bin/pyenv install $PYTHON_VER \
+&& mkdir -p /home/py_node/.starship/bin \
+&& sh install.sh --yes --bin-dir=/home/py_node/.starship/bin \
+&& rm install.sh
+
+# install latest version
+RUN /home/py_node/.pyenv/bin/pyenv install $PYTHON_VER \
 && /home/py_node/.pyenv/bin/pyenv global $PYTHON_VER \
 && /home/py_node/.nodenv/bin/nodenv install $NODE_VER \
 && /home/py_node/.nodenv/bin/nodenv global $NODE_VER
+
+RUN echo 'PATH=$PATH:/home/py_node/.starship/bin:/home/py_node/.pyenv/bin:/home/py_node/.nodenv/bin' >> ~/.bashrc \
+&& echo 'eval "$(pyenv init -)"' >> ~/.bashrc \
+&& echo 'eval "$(nodenv init -)"' >> ~/.bashrc \
+&& echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 LABEL maintainer="https://github.com/gosaaan1/hokulea-garage/"
 
