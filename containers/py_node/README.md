@@ -12,13 +12,15 @@ SQLiteとPostgreSQLをデータベースとして使用することができま�
 
 ## 使い方
 
-- ホームディレクトリ下に`py_node_projects`ディレクトリを作成し、その下に`.devcontainer`ディレクトリをコピーします。  ※わかりやすくするために`py_node_projects`にしていますが、好きな名前に変えてください。
+- ホームディレクトリ下に`py_node_projects`ディレクトリを作成し、その下に`.devcontainer`ディレクトリをコピーします。
+※わかりやすくするために`py_node_projects`にしていますが、好きな名前に変えてください。
 - VSCodeで`py_node_projects`フォルダを開きます。
-- VSCodeの >< マークをクリックし、**コンテナーで開く（またはコンテナーで再度開く）**を選択します。
+- VSCodeの >< マークをクリックし、**コンテナーで開く（またはコンテナーで再度開く）** を選択します。
   
 ![スクリーンショット 2024-02-11 115218](https://github.com/gosaaan1/hokulea-garage/assets/123862848/7952a215-68a9-4f89-a508-5a4f3f17e28f)
 ![スクリーンショット 2024-02-11 115147](https://github.com/gosaaan1/hokulea-garage/assets/123862848/10d2dad1-300f-4f50-9f71-0b5562ec354f)
 - `/workspace`ディレクトリの下にプロジェクトをクローン、または作成します。
+- VSCodeでプロジェクトのディレクトリを開きます。
 - ターミナルを開き、`python --version`, `node --version`を実行し、PythonとNode.jsが正常に動作することを確認します。
 
 ### データベースアクセスが必要なアプリ開発をしたい
