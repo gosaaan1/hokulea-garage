@@ -48,6 +48,8 @@ RUN /home/py_node/.pyenv/bin/pyenv install $PYTHON_VER \
 && /home/py_node/.nodenv/bin/nodenv global $NODE_VER
 
 RUN echo 'PATH=$PATH:/home/py_node/.starship/bin:/home/py_node/.pyenv/bin:/home/py_node/.nodenv/bin' >> ~/.bashrc \
+&& echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc \
+&& echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc \
 && echo 'eval "$(pyenv init -)"' >> ~/.bashrc \
 && echo 'eval "$(nodenv init -)"' >> ~/.bashrc \
 && echo 'eval "$(starship init bash)"' >> ~/.bashrc
