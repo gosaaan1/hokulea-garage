@@ -11,6 +11,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
 locales \
+sudo \
 curl git \
 build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl \
@@ -22,8 +23,10 @@ sqlite3 \
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
 
-# ユーザー作成 & VSCodeのワークスペースのマウント先ディレクトリを作成
-RUN groupadd developer && useradd -g developer py_node \
+RUN groupadd --gid 1000 developer \
+    && useradd --uid 1000 --gid 1000 -m py_node -s /bin/bash \
+    && echo py_node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/py_node \
+    && chmod 0440 /etc/sudoers.d/py_node \
 && mkdir /workspace \
 && chown py_node:developer /workspace
 
