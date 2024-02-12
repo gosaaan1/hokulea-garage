@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  variables:
+    # AWS_DEFALUT_REGION と AWS_ACCOUNT_IDはCodeBuild側で設定済み
+    IMAGE_NAME: "terraform-mfa"
+    VERSION: "1.3.0"
+phases:
+  build:
+    commands:
+      - cd ./containers/terraform-mfa
+      - docker build -t $IMAGE_NAME:$VERSION .
+  post_build:
+    commands:
+      # プライベートリポジトリを使う場合
+      # - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      # - docker tag $IMAGE_NAME:$VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:$VERSION
+      # - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_NAME:$VERSION
+
+      # パブリックリポジトリを使う場合
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/l2m0t2f1
+      - docker tag $IMAGE_NAME:$VERSION public.ecr.aws/l2m0t2f1/$IMAGE_NAME:$VERSION
+      - docker push public.ecr.aws/l2m0t2f1/$IMAGE_NAME:$VERSION
