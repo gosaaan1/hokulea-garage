@@ -5,7 +5,7 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceMount": "source=workspace-data,target=/workspace,type=volume",
-	"workspaceFolder": "/workspace"
+	"workspaceFolder": "/workspace",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -22,4 +22,11 @@
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "terraform"
+
+    // terraform-mfaの gpg --gen-key がVSCode1.75以降で動かない #3 対策
+    "postCreateCommand": "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye",
+
+    "extensions": [
+        "hashicorp.terraform"
+    ]	
 }
