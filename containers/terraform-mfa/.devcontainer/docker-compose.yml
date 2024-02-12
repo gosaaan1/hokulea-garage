@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  terraform:
+    image:
+      public.ecr.aws/l2m0t2f1/terraform-mfa:latest
+
+    volumes:
+      - workspace-data:/workspace
+      - terraform-home:/home/terraform
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # terraform-mfaの gpg --gen-key がVSCode1.75以降で動かない #3 対策
+    postCreateCommand: "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye"
+
+    extensions: [
+        "hashicorp.terraform"
+    ]
+volumes:
+  workspace-data:
+  terraform-home:
