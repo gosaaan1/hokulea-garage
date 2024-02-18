@@ -3,7 +3,7 @@
 {
 	"name": "Terraform-MFA",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"service": "terraform",
 	"workspaceMount": "source=workspace-data,target=/workspace,type=volume",
 	"workspaceFolder": "/workspace",
 
