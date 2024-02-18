@@ -23,7 +23,7 @@ AWSのMFA（多段階）認証に対応したTerraformの実行環境を提供�
 1. プロジェクトルートに `.devcontainer.json` ファイルを以下の内容で作成します。
     ```
     {
-        "image": "public.ecr.aws/l2m0t2f1/terraform-mfa:1.2",
+        "image": "public.ecr.aws/l2m0t2f1/terraform-mfa:latest",
         # 次の1行を記述すると、アクセスキーやシークレットキーはDockerの名前付きボリューム "terraform_credentials" に保存されます。
         # 認証情報を複数のコンテナで共有したいときはこの行を追加します
         "mounts": ["source=terraform_credentials,target=/root"],
@@ -49,7 +49,7 @@ AWSのMFA（多段階）認証に対応したTerraformの実行環境を提供�
         [profile {プロファイル名}]
         mfa_serial=arn:aws:iam::{AWSのアカウントID}:mfa/terraform
         ```
-    * `aws-vault exec {プロファイル名} --no-session -- env | grep AWS_`を実行し、AWSアクセスキーとシークレットキーが正しく設定されていることを確認します。
+    * `aws-vault exec {プロファイル名} --no-session -- env | grep AWS`を実行し、AWSアクセスキーとシークレットキーが正しく設定されていることを確認します。
     * `aws-vault exec {プロファイル名} -- terraform init`を実行します。
     * `pass` を実行し、以下のような出力が得られることを確認します。     
         ```
