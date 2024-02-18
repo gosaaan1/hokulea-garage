@@ -24,9 +24,5 @@
 	"remoteUser": "terraform"
 
     // terraform-mfaの gpg --gen-key がVSCode1.75以降で動かない #3 対策
-    "postCreateCommand": "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye",
-
-    "extensions": [
-        "hashicorp.terraform"
-    ]	
+    "postCreateCommand": "rm ~/.gnupg/S.gpg-agent* && gpg-connect-agent reloadagent /bye"
 }
